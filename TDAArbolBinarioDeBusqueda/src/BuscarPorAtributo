@@ -1,0 +1,63 @@
+Encuentra un nodo con el valor de un atributo diferente a la etiqueta
+
+TElementoAB
+encuentraLinealTres(nombreAtributo, valorAtributo):
+Com
+	Persona p = (Persona) this.dato // casteo al tipo, como se busca ci en vez de nombre, se supone una clase persona
+	Si p.obtenerAtributo(nombreAtributo).equals(valorAtributo) entonces
+		Devolver this
+	Fin si
+	Está  nulo
+	Si hijoIzquierdo <> nulo entonces
+		Está  hijoIzquierdo.encuentraLinealTres(nombreAtributo, valorAtributo)
+	Fin si
+	Si hijoDerecho <> nulo entonces
+		Está  hijoDerecho. encuentraLinealTres(nombreAtributo, valorAtributo)
+	Fin si
+	Devolver Está
+Fin
+
+Persona
+obtenerAtributo(nombreAtributo):
+Com
+	Si nombreAtributo = "nombre"
+		return this.nombre
+	FinSi
+	Si nombreAtributo = "ci"
+		return this.ci
+	FinSi
+	Si nombreAtributo = "edad"
+		return this.edad
+	FinSi
+	return nulo
+Fin
+--------------------------------
+
+Encuentra todos los nodos que tienen determinado parametro
+
+TArbolBBU
+armarIndiceCarrera(unaCarrera)
+Com
+	Si raiz <> nulo entonces
+		arbolResultante = new TArbolBBU
+		raiz.indizar(arbolResultante,unaCarrera)
+		return arbolResultante
+	Sino
+		return null
+	Fin
+Fin
+
+NodoAlumnoAB
+indizar (indicePorCarrera, unaCarrera)
+Com
+	Alumno a = (Alumno)this.Dato
+	Si a.getCarrera.equals(unaCarrera)
+		indicePorCarrera.insertar(new NodoAlumnoAB(a.getApellido(), a))
+	FinSi
+	Si this.hijoIzq <> nulo entonces
+		this.hijoIzq.indizar(indicePorCarrera, unaCarrera)
+	FinSi
+	Si this.hijoDer <> nulo entonces
+		this.hijoDer.indizar(indicePorCarrera, unaCarrera)
+	FinSi
+Fin
